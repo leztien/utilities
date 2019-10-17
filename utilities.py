@@ -33,9 +33,22 @@ def download_ndarray(url:"url of .npy file") -> "numpy-array":
 
 #=================================================================================================
 
+def load_from_github(url):
+    """load a python module from github"""
+    from urllib.request import urlopen
+    from os import remove
+    
+    obj = urlopen(path)
+    assert obj.getcode()==200,"unable to open"
 
+    s = str(obj.read(), encoding="utf-8")
+    NAME = "_temp.py"
+    with open(NAME, mode='wt', encoding='utf-8') as fh: fh.write(s)
+    module = __import__(NAME[:-3])
+    remove(NAME)
+    return module
 
-
+#=================================================================================================
 
 
 
