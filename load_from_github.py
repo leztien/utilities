@@ -4,7 +4,7 @@ def load_from_github(url):
     from urllib.request import urlopen
     from os import remove
     
-    obj = urlopen(path)
+    obj = urlopen(url)
     assert obj.getcode()==200,"unable to open"
 
     s = str(obj.read(), encoding="utf-8")
